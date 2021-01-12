@@ -1,0 +1,22 @@
+{
+  "name": "todo_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "todo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomeDvlp/TODO_API.git"
+  },
+  "author": "ThomeDvlp",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThomeDvlp/TODO_API/issues"
+  },
+  "homepage": "https://github.com/ThomeDvlp/TODO_API#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
