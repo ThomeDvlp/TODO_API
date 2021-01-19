@@ -1,9 +1,11 @@
 module.exports = (app) => {
   app.get('/usuario', (req, res) =>
   {
-    res.send('<h1>Oi, sou o usuario!!!</h1>');
+    res.send('<h2>Rota ativada: Olá sou o Usuario</h2>');
   })
+
   app.post('/usuario', (req, res) => {
-    res.send('Route post sendo utilizada por usuario')
+    console.log(`Corpo da requisição: ${req.body.nome}`);
+    res.send('Ok')
   })
 }
