@@ -7,6 +7,15 @@ module.exports = (app) => {
     
     app.get('/usuarios/:email', usuarioController.getUsuarioByEmail());
 
-    // app.post('/usuarios', usuarioController.postNovoUsuario());
+    app.get('/usuarios/:id', usuarioController.getUsuarioById());
 
+    app.post('/usuarios', usuarioController.postNovoUsuario());
+
+    app.put('/usuarios/:id', usuarioController.updateUsuario());
+
+    app.delete('/usuarios/:email', usuarioController.deleteUsuario());
+
+    app.get('/tarefas', tarefaController.getTarefasUsuario());
+
+    
 }
