@@ -15,7 +15,13 @@ module.exports = (app) => {
 
     app.delete('/usuarios/:email', usuarioController.deleteUsuario());
 
-    app.get('/tarefas', tarefaController.getTarefasUsuario());
+    app.get('/tarefas', tarefaController.getAllTarefasUsuarios());
 
-    
+    app.get('/tarefas/:id_usuario', tarefaController.getTarefasByIdUsuario());
+
+    app.post('/tarefas'), tarefaController.criaNovaTarefa();
+
+    app.put('/tarefas/:id'), tarefaController.putTarefa();
+
+    app.delete('tarefas/:id'), tarefaController.removeTarefa();
 }
