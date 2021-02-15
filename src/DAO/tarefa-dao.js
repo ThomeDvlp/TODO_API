@@ -19,28 +19,19 @@ class TarefasDAO {
     {
         return (new Promise((resolve, reject)=>
         {
-            dados.get(`SELECT * FROM TAREFAS WHERE ID_USUARIO = ?`, 
-            [id_usurio], (err, row)=>
+            dados.all(`SELECT * FROM TAREFAS WHERE ID_USUARIO = ?`, 
+            [id_usuario], (err, row)=>
             {
-                if(err) reject('erro ao consultar tabela')
+                if(err) reject('erro no consulta')
                 else resolve(row)
             })
+            
         }))
     }
+    
 
-    static criaNovaTarefaDAO(req) 
+    static criaNovaTarefaDAO(arg) 
     {
-        console.log(req.body);
-
-        const novaTarefa = new Tarefa
-        (
-            rep.body.titulo, 
-            req.body.descricao, 
-            req.body.status, 
-            req.body.datacriacao, 
-            req.body.id_usuario
-        );
-
         return (new Promise ((resolve, reject)=>
         {            
             dados.run
@@ -48,7 +39,7 @@ class TarefasDAO {
                 `INSERT INTO TAREFAS 
                 (TITULO, DESCRICAO, STATUS, DATACRIACAO, ID_USUARIO) 
                 VALUES(?,?,?,?,?)`, 
-            [novaTarefa.titulo, novaTarefa.descricao, novaTarefa.status, novaTarefa.datacriacao, novaTarefa.id_usuario], 
+            [arg.titulo, arg.descricao, arg.status, arg.datacriacao, arg.id_usuario], 
             (err)=> 
             {
                 if (err) reject(`Erro ao inserir valores`)
@@ -63,9 +54,8 @@ class TarefasDAO {
         {
             dados.run
             (
-                `UPDATE TAREFAS SET TITULO=?, DESCRICAO=?, STATUS=?, DATACRIACAO=?  
-                WHERE ID=?`,
-                [body.titulo, body.descricao, body.status, body.datacriacao], 
+                `UPDATE TAREFAS SET TITULO=?, DESCRICAO=?, STATUS=?, DATACRIACAO=?, ID_USUARIO=? WHERE ID=?;`,
+                [body.titulo, body.descricao, body.status, body.datacriacao, body.id_usuario, id], 
                 (err)=>
                 {
                     if (err) reject(`Falha na atualização de tarefas`)

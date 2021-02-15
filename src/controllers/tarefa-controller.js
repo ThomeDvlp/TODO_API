@@ -24,12 +24,12 @@ class TarefaController {
 			try
 				{
 					const tarefasId = await TarefasDAO.getTarefasByIdUsuario(req.params.id_usuario)
-					res.send(tarefasId);
+					res.status(200).send(tarefasId);
 				}
 			catch
 				{
 					console.log("deu ruim");
-					res.send(err)
+					res.send("erro")
 				}		
 		})
 
@@ -42,7 +42,7 @@ class TarefaController {
 		{
 			try
 				{
-					const novaTarefa = await TarefasDAO.criaNovaTarefaDAO()
+					const novaTarefa = await TarefasDAO.criaNovaTarefaDAO(req.body)
 					if (novaTarefa === 'Nova tarefa criada com sucesso')				
 						res.send({'response': 'Nova tarefa criada com sucesso'})
 				}
@@ -55,15 +55,15 @@ class TarefaController {
 
 	}
 
-	static putTarefa()
+	static updateTarefas()
 	{
 		return ( async (req, res)=>
 		{
 			try 
 				{
-					const updateTarefas = await TarefasDAO.updateTarefasDAO(req.params.id, req.body)
-					if (updateTarefas === 'Tarefa atualizada com sucesso')
-						res.send('Tarefa atualizada com sucesso');	
+					const updateTarefa = await TarefasDAO.updateTarefasDAO(req.params.id, req.body)
+					if (updateTarefa === 'Tarefa atualizada com sucesso')
+						res.status(200).send('Tarefa atualizada com sucesso');	
 				}
 			catch
 				{
@@ -82,8 +82,7 @@ class TarefaController {
 			try 
 				{
 					const removeTarefa = await TarefasDAO.deleteTarefaDAO(req.params.id)
-					if (removetarefa === 'Tarefa apagada')
-						res.send('Tarefa apagada')
+					res.status(200).send('Tarefa apagada')
 				}
 			catch
 				{

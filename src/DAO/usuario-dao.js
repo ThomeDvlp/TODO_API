@@ -20,20 +20,8 @@ class UsuariosDAO {
     {   
         return (new Promise((resolve, reject) => 
         {
-            dados.get(`SELECT * FROM USUARIOS WHERE email = ?`, 
-            [email], (err, row) => 
-            {
-                if(err)reject(err)
-                else resolve (row)
-            })
-        }))
-    }
-
-    static getUsuarioByIdDAO(id) 
-    {
-        return (new Promise((resolve, reject)=> 
-        {
-            dados.get(`SELECT * FROM USUARIOS WHERE id = ?`, [id], (err, row) => 
+            dados.get(`SELECT * FROM USUARIOS WHERE EMAIL = ?`, [email], 
+            (err, row) => 
             {
                 if(err)reject(err)
                 else resolve (row)
@@ -77,7 +65,7 @@ class UsuariosDAO {
                 "UPDATE USUARIOS SET NOME =?, EMAIL=?, SENHA=? WHERE ID=?;", 
             [body.nome, body.email, body.senha, id], (err)=>
             {
-                if (err) reject(`Falha na operação de atualização do usuário ${err}`)
+                if (err) reject(`Falha na operação de atualização do usuário`)
                 else resolve ('Sucesso na atualização do usuário')
             })
         }))

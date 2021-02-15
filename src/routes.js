@@ -7,8 +7,6 @@ module.exports = (app) => {
     
     app.get('/usuarios/:email', usuarioController.getUsuarioByEmail());
 
-    app.get('/usuarios/:id', usuarioController.getUsuarioById());
-
     app.post('/usuarios', usuarioController.postNovoUsuario());
 
     app.put('/usuarios/:id', usuarioController.updateUsuario());
@@ -19,9 +17,9 @@ module.exports = (app) => {
 
     app.get('/tarefas/:id_usuario', tarefaController.getTarefasByIdUsuario());
 
-    app.post('/tarefas'), tarefaController.criaNovaTarefa();
+    app.post('/tarefas', tarefaController.criaNovaTarefa());
 
-    app.put('/tarefas/:id'), tarefaController.putTarefa();
+    app.put('/tarefas/:id', tarefaController.updateTarefas());
 
-    app.delete('tarefas/:id'), tarefaController.removeTarefa();
+    app.delete('/tarefas/:id', tarefaController.removeTarefa());
 }

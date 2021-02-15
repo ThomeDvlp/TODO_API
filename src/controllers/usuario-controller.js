@@ -8,7 +8,7 @@ class UsuarioController {
 			try 
 				{
 					const usuarios = await UsuariosDAO.getAllUsuariosDados()
-					res.send(usuarios);
+					res.status(200).send(usuarios);
 				}
 				catch 
 				{
@@ -19,14 +19,14 @@ class UsuarioController {
 	}
 
 
-	static getUsuarioByEmail(email) 
+	static getUsuarioByEmail() 
 	{
 		return (async(req, res) => 
 		{
 			try 
 				{
 					const locUsuarioEmail = await UsuariosDAO.getUsuarioByEmailDAO(req.params.email)
-					res.send(locUsuarioEmail);
+					res.status(200).send(locUsuarioEmail);
 				}
 			catch 
 				{
@@ -36,24 +36,6 @@ class UsuarioController {
 		})
 
 	}
-
-		//função getUsuarioById não está retornado nada debugar depois de terminar o crud de trarefas
-	static getUsuarioById(id) {
-
-		return ( async (req, res) => {
-			try 
-				{
-					const locUsuarioId = await UsuariosDAO.getUsuarioByIdDAO(req.params.id)
-					res.send(locUsuarioId);
-				}
-			catch
-				{
-					console.log('Falha ao localizar usuário pelo ID')
-					res.send(err);
-				}		
-			})
-
-		}
 
 
 	static postNovoUsuario() {
@@ -69,7 +51,7 @@ class UsuarioController {
 				}
 			catch
 				{
-					console.log(err)
+					console.log(`Erro ao inserir valores`)
 					res.send('Falha ao adicionar novo usuário')
 				}		
 		})
