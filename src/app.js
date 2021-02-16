@@ -8,7 +8,7 @@ app.use(cors());
 
 const routes = require('./routes')
 
-const port = 8080
+const port = process.env.PORT
 
 routes(app);
 
