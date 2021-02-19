@@ -1,6 +1,24 @@
-# TODO_API
+To Do API
 
-Aplicativo pra gerenciar tarefas a serem feitas. Basedo em formato Kanban. Cria, Controla e geerencia as tarefas de diversos usuários. 
+API Restfull para de controle de tarefas de usuarios. Desenvolvida durante o terceiro módulo do curso de desenvolvimento web FullStack Resilia.
 
-Criado pra ser rodado em ambiente Node.Js utiliza das extenções express, body-parse, sqlite.
+## 🚀 Começando
 
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
+
+Consulte **Implantação** para saber como implantar o projeto.
+
+### 📋 Pré-requisitos Para instalação local
+
+Nodejs.
+Pacotes NPM: "express", "body-parser", "cors", "sqlite3"
+
+### 🔧 Instalação local
+Abra o GitBash na pasta oonde deseja clonar seu repositório e execute os comandos:
+
+$ git clone https://github.com/ThomeDvlp/TODO_API.git
+
+
+ToDoApi-Thome pode ser acessada através dos seguintes endereços:
+https://git.heroku.com/todoapi-thome.git/usuarios
+https://git.heroku.com/todoapi-thome.git/tarefas
